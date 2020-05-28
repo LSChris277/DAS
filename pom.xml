@@ -79,16 +79,16 @@
 <!--                <enabled>true</enabled>-->
 <!--            </snapshots>-->
 <!--        </repository>-->
-<!--        <repository>-->
-<!--            <id>public</id>-->
-<!--            <url>https://maven.aliyun.com/repository/public</url>-->
-<!--            <releases>-->
-<!--                <enabled>true</enabled>-->
-<!--            </releases>-->
-<!--            <snapshots>-->
-<!--                <enabled>true</enabled>-->
-<!--            </snapshots>-->
-<!--        </repository>-->
+        <repository>
+            <id>public</id>
+            <url>https://maven.aliyun.com/repository/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
 <!--        <repository>-->
 <!--            <id>apache snapshots</id>-->
 <!--            <url>https://maven.aliyun.com/repository/apache-snapshots</url>-->

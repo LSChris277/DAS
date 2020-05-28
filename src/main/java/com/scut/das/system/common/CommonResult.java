@@ -37,6 +37,14 @@ public class CommonResult<T> {
     }
 
     /**
+     * 成功返回结果为空
+     *
+     */
+    public static <T> CommonResult<T> success(String message) {
+        return new CommonResult<T>(ErrorCodeEnum.SUCCESS.code(), message, null);
+    }
+
+    /**
      * 成功返回结果
      *
      * @param data 获取的数据

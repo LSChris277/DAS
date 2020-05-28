@@ -1,9 +1,8 @@
 package com.scut.das.system.shiro;
 
+import com.scut.das.entity.User;
 import com.scut.das.service.UserService;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -34,7 +33,17 @@ public class Realm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        String userName = (String) authenticationToken.getPrincipal();
-        return null;
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        String userName = token.getUsername().toString();
+        String passWord = new String(token.getPassword());
+
+        User user = userService.selectByUserNumber(userName);
+
+        if (!passWord.equals(user.getPassword())) {
+            throw new AuthenticationException("用户名或密码不正确");
+        }
+
+        return new SimpleAuthenticationInfo(userName, passWord, getName());
     }
+
 }

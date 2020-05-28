@@ -12,4 +12,8 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl extends ServiceImpl<UserDao, User> implements UserService {
 
+    @Override
+    public User selectByUserNumber(String userName) {
+        return query().eq("user_number", userName).one();
+    }
 }

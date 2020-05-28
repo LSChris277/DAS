@@ -1,5 +1,7 @@
 package com.scut.das.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -10,7 +12,7 @@ import java.io.Serializable;
 /**
  * 用户表(User)实体类
  *
- * @author makejava
+ * @author Chris
  * @since 2020-04-29 09:31:20
  */
 @Data
@@ -23,6 +25,7 @@ public class User implements Serializable {
     /**
     * 主键
     */
+    @TableId(type = IdType.AUTO)
     private Integer id;
     /**
     * 账号
